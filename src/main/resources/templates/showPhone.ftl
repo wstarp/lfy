@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <title>华商晨报年会签到</title>
-    <link href="/fx/static/jtsc/new_css/default.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="/fx/static/js/jquery-2.0.3.min.js"></script>
+    <link href="/lfy/static/jtsc/new_css/default.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/lfy/static/js/jquery-2.0.3.min.js"></script>
 
-    <script src="/fx/static/jtsc/new_js/page.js"></script>
-    <script type="text/javascript" src="/fx/static/jtsc/jquery.blockUI.js"></script>
-    <script type="text/javascript" src="/fx/static/jtsc/common-client.js"></script>
+    <script src="/lfy/static/jtsc/new_js/page.js"></script>
+    <script type="text/javascript" src="/lfy/static/jtsc/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="/lfy/static/jtsc/common-client.js"></script>
     <style type="text/css">
         table.altrowstable {
             font-family: verdana, arial, sans-serif;
@@ -112,7 +112,7 @@
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "/fx/qd/getPhones",
+            url: "/lfy/qd/getPhones",
             data: "",
             success: function (data) {
                 console.info(data);

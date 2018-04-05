@@ -9,18 +9,18 @@
     文档最大的宽度比列是1.0（ initial-scale 初始刻度值和 maximum-scale 最大刻度值）；user-scalable 定义用户是否可以手动缩放（ no 为不缩放），使页面固定设备上面的大小；-->
     <meta name="apple-mobile-web-app-capable" content="yes" /><!--网站开启对 web app 程序的支持-->
     <meta name="apple-mobile-web-app-status-bar-style" content="black" /><!--（改变顶部状态条的颜色）-->
-    <link href="/fx/static/css/style.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="/fx/static/js/jquery.js"></script>
-    <script type="text/javascript" src="/fx/static/js/modernizr.custom.js"></script>
-    <script type="text/javascript" src="/fx/static/js/jquery.dlmenu.js"></script>
-    <#--<script src="/fx/static/js/jquery.min.js"></script>-->
-    <script src='/fx/static/js/hhSwipe.js' type="text/javascript"></script>
+    <link href="/lfy/static/css/style.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/lfy/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/lfy/static/js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="/lfy/static/js/jquery.dlmenu.js"></script>
+    <#--<script src="/lfy/static/js/jquery.min.js"></script>-->
+    <script src='/lfy/static/js/hhSwipe.js' type="text/javascript"></script>
 </head>
 <body>
 <div class="wrap_box">
-    <img class="bg" src="/fx/static/images/dt.png"/>
-    <img class="bd" src="/fx/static/images/hh.png"/>
-    <img class="ba" src="/fx/static/images/hj.png"/>
+    <img class="bg" src="/lfy/static/images/dt.png"/>
+    <img class="bd" src="/lfy/static/images/hh.png"/>
+    <img class="ba" src="/lfy/static/images/hj.png"/>
     <!---内容开始-->
     <ul class="news_box">
         <li class="tu">
@@ -123,7 +123,7 @@
 
     </ul>
 
-    <img id="tt" src="/fx/static/images/cg.jpg"/>
+    <img id="tt" src="/lfy/static/images/cg.jpg"/>
     <input class="but" type="button"  value="提交" onclick="toSubmit();document.getElementById('tt').style='display:block'"/>
 </div>
 </body>
