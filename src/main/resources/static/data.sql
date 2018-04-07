@@ -32,7 +32,7 @@ CREATE TABLE `English_word` (
   `sentence` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_520_ci DEFAULT '' COMMENT '例句',
   `pron` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_520_ci DEFAULT '' COMMENT '读音位置',
   `state` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_520_ci DEFAULT NULL COMMENT '状态（0四级 1六级 2初中 3小学 4高中 5all）',
-  `state_two` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_520_ci DEFAULT NULL COMMENT '备用状态（0四级 1六级 2初中 3小学 4高中 5all）',
+  `statetwo` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_520_ci DEFAULT NULL COMMENT '备用状态（0四级 1六级 2初中 3小学 4高中 5all）',
   PRIMARY KEY (`id`,`word`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tech.lfy.mapper.EnglishWordMapper">
+
+    <select id="getEnglishWord" resultType="com.tech.lfy.model.EnglishWordEntity"  parameterType="map">
+        SELECT
+            id,word, soundmark,mean,NNNmean, phrase, dictionary,sentence,
+            pron,state,statetwo
+        FROM English_word
+        WHERE word = #{word}
+    </select>
+
+</mapper>
+        
