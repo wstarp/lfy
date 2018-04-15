@@ -18,7 +18,7 @@ import java.util.Map;
 @RequestMapping("login")
 public class LoginController {
 
-    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+       protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private LoginService loginService;
