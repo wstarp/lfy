@@ -43,9 +43,9 @@ public class LoginService {
 
     public void registerPhoneNO(String tel, String msgCode)  throws  Exception{
         UserEntity userEntity = new UserEntity();
-        userEntity.setLoginType("normal");
-        userEntity.setPass(tel);
-        userEntity.setUserName(msgCode);
+        userEntity.setLoginType("codeAuth");
+        userEntity.setTel(tel);
+        userEntity.setMsgCode(msgCode);
         loginMapper.registerPhoneNO(userEntity);
     }
 }
