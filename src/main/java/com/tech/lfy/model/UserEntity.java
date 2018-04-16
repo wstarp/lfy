@@ -8,12 +8,10 @@ public class UserEntity implements Serializable {
 
     private String id;
     private String userName;
-    private String password;
-    private String invitationCode;
-    private int type;
-    private int status;
-    private String parentId;
-    private Date createTime;
+    private String tel;
+    private String msgCode;
+    private String pass;
+    private String loginType;
 
     public String getId() {
         return id;
@@ -31,51 +29,35 @@ public class UserEntity implements Serializable {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getTel() {
+        return tel;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
-    public String getInvitationCode() {
-        return invitationCode;
+    public String getMsgCode() {
+        return msgCode;
     }
 
-    public void setInvitationCode(String invitationCode) {
-        this.invitationCode = invitationCode;
+    public void setMsgCode(String msgCode) {
+        this.msgCode = msgCode;
     }
 
-    public int getType() {
-        return type;
+    public String getPass() {
+        return pass;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
-    public int getStatus() {
-        return status;
+    public String getLoginType() {
+        return loginType;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setLoginType(String loginType) {
+        this.loginType = loginType;
     }
 }

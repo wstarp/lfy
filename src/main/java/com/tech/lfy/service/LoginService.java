@@ -19,16 +19,45 @@ public class LoginService {
     @Resource
     private LoginMapper loginMapper;
 
-    public UserEntity getLoginUser(String userName, String password) {
+    public UserEntity getLoginUser(UserEntity user) {
         UserEntity userEntity = null;
         try {
-            Map<String,String> params = new HashMap<>();
-            params.put("userName",userName);
-            params.put("password",password);
-            userEntity = loginMapper.getLoginUser(params);
+            userEntity = loginMapper.getLoginUser(user);
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         return userEntity;
+    }
+
+    public void registerUser(String userName, String pass) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setLoginType("normal");
+        userEntity.setPass(pass);
+        userEntity.setUserName(userName);
+        loginMapper.registerUser(userEntity);
+    }
+
+    public boolean checkUserName(String userName) {
+       Integer integer = loginMapper.checkUserName(userName);
+       if(integer>0)
+           return true;
+       else
+           return false;
+    }
+
+    public boolean checkTel(String tel) {
+        Integer integer = loginMapper.checkTel(tel);
+        if(integer>0)
+            return true;
+        else
+            return false;
+    }
+
+    public void registerPhoneNO(String tel, String msgCode) {
+        UserEntity userEntity = new UserEntity();
+        userEntity.setLoginType("normal");
+        userEntity.setPass(tel);
+        userEntity.setUserName(msgCode);
+        loginMapper.registerPhoneNO(userEntity);
     }
 }

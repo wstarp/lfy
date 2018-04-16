@@ -4,12 +4,28 @@
 
 <mapper namespace="com.tech.lfy.mapper.LoginMapper">
 
-    <select id="getLoginUser" resultType="com.tech.lfy.model.UserEntity"  parameterType="map">
+    <select id="getLoginUser" resultType="com.tech.lfy.model.UserEntity"  parameterType="com.tech.lfy.model.UserEntity">
         SELECT
-          id, user_name as userName, password, invitation_code as invitationCode,
-          `type`,`status`,create_time as createTime,parent_id as parentId
+          id, user_name as userName, pass, msg_code as msgCode,
+          tel, login_type AS loginType
         FROM user
-        WHERE user_name = #{userName} AND password = #{password}
+        WHERE user_name = #{userName} AND pass = #{pass}
+    </select>
+
+    <insert id="registerUser" parameterType="com.tech.lfy.model.UserEntity">
+        INSERT INTO  user(user_name,pass,login_type) VALUES ( #{userName}, #{pass},'normal')
+    </insert>
+
+    <insert id="registerPhoneNO" parameterType="com.tech.lfy.model.UserEntity">
+        INSERT INTO  user(tel,msg_code,login_type) VALUES ( #{tel}, #{msgCode},'codeAuth')
+    </insert>
+
+    <select id="checkUserName" resultType="Integer" parameterType="String">
+        SELECT count(1) FROM user WHERE user_name = #{userName}
+    </select>
+
+    <select id="checkTel" resultType="Integer" parameterType="String">
+        SELECT count(1) FROM user WHERE tel = #{tel}
     </select>
 
 </mapper>
