@@ -4,13 +4,37 @@
 
 <mapper namespace="com.tech.lfy.mapper.EnglishWordMapper">
 
-    <select id="getEnglishWord" resultType="com.tech.lfy.model.EnglishWordEntity"  parameterType="map">
+    <resultMap id="resultMap" type="com.tech.lfy.model.EnglishWordEntity">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="word" property="word" jdbcType="VARCHAR"/>
+        <result column="soundmark" property="soundmark" jdbcType="VARCHAR"/>
+        <result column="mean" property="mean" jdbcType="VARCHAR"/>
+        <result column="NNNmean" property="NNNmean" jdbcType="VARCHAR"/>
+        <result column="phrase" property="phrase" jdbcType="VARCHAR"/>
+        <result column="dictionar" property="dictionar" jdbcType="VARCHAR"/>
+        <result column="sentence" property="sentence" jdbcType="VARCHAR"/>
+        <result column="pron" property="pron" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
+        <result column="statetwo" property="statetwo" jdbcType="VARCHAR"/>
+    </resultMap>
+    
+    <select id="getEnglishWord" resultMap="resultMap"  parameterType="String">
         SELECT
             id,word, soundmark,mean,NNNmean, phrase, dictionary,sentence,
             pron,state,statetwo
         FROM English_word
-        WHERE word = #{word}
+        WHERE word LIKE CONCAT('%',#{word}, '%')
     </select>
+
+    <select id="getEnglishWordByState" resultMap="resultMap"  parameterType="String">
+        SELECT
+        id,word, soundmark,mean,NNNmean, phrase, dictionary,sentence,
+        pron,state,statetwo
+        FROM English_word
+        WHERE state  = #{state}
+    </select>
+
+
 
 </mapper>
         

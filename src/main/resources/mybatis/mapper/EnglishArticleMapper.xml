@@ -4,9 +4,16 @@
 
 <mapper namespace="com.tech.lfy.mapper.EnglishArticleMapper">
 
-    <select id="getEnglishArticle" resultType="com.tech.lfy.model.EnglishArticleEntity"  parameterType="map">
+    <resultMap id="resultType" type="com.tech.lfy.model.EnglishArticleEntity">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="article" property="article" jdbcType="VARCHAR"/>
+        <result column="expess" property="expess" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getEnglishArticle" resultMap="resultType"  parameterType="String">
         SELECT
-          id,article,state
+          id,article,expess,state
         FROM English_article
         WHERE state = #{state}
     </select>

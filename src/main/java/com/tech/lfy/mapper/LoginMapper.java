@@ -8,13 +8,13 @@ import org.springframework.stereotype.Component;
 @Component("loginMapper")
 public interface LoginMapper {
 
-    UserEntity getLoginUser(UserEntity user);
+    UserEntity getLoginUser(UserEntity user)throws  Exception;
 
-    void registerUser(UserEntity userEntity);
+    void registerUser(UserEntity userEntity)throws  Exception;
 
-    Integer checkUserName(String userName);
+    Integer checkUserName(String userName)throws  Exception;
 
-    Integer checkTel(String tel);
+    Integer checkTel(String tel)throws  Exception;
 
-    void registerPhoneNO(UserEntity userEntity);
+    void registerPhoneNO(UserEntity userEntity)throws  Exception;
 }

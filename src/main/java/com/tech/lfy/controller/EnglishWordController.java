@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -22,13 +23,17 @@ public class EnglishWordController {
     private EnglishWordService englishWordService;
 
 
-
+    /**
+     * 英语单词查询
+     * @param word
+     * @return
+     */
     @RequestMapping(value="/doEnglishWord",method= RequestMethod.POST)
     @ResponseBody
     public Object doEnglishWord(String word){
         Map<String,Object> map = new HashMap<>();
         try {
-            EnglishWordEntity englishWordEntity = englishWordService.getEnglishWord(word);
+            List<EnglishWordEntity> englishWordEntity = englishWordService.getEnglishWord(word);
             map.put("code","0");
             map.put("msg","OK");
             map.put("data",englishWordEntity);
@@ -38,4 +43,24 @@ public class EnglishWordController {
         return map;
     }
 
+
+    /**
+     * 英语课程分类单词查询
+     * @param state
+     * @return
+     */
+    @RequestMapping(value="/doState",method= RequestMethod.POST)
+    @ResponseBody
+    public Object doState(String state){
+        Map<String,Object> map = new HashMap<>();
+        try {
+            List<EnglishWordEntity> englishWordEntity = englishWordService.getEnglishWordByState(state);
+            map.put("code","0");
+            map.put("msg","OK");
+            map.put("data",englishWordEntity);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return map;
+    }
 }

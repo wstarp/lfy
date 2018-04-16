@@ -2,34 +2,22 @@ package com.tech.lfy.service;
 
 import com.tech.lfy.mapper.LoginMapper;
 import com.tech.lfy.model.UserEntity;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
-
 
 @Service
 public class LoginService {
 
-    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     private LoginMapper loginMapper;
 
-    public UserEntity getLoginUser(UserEntity user) {
-        UserEntity userEntity = null;
-        try {
-            userEntity = loginMapper.getLoginUser(user);
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
-        return userEntity;
+    public UserEntity getLoginUser(UserEntity user) throws  Exception {
+        return loginMapper.getLoginUser(user);
     }
 
-    public void registerUser(String userName, String pass) {
+    public void registerUser(String userName, String pass)  throws  Exception{
         UserEntity userEntity = new UserEntity();
         userEntity.setLoginType("normal");
         userEntity.setPass(pass);
@@ -37,7 +25,7 @@ public class LoginService {
         loginMapper.registerUser(userEntity);
     }
 
-    public boolean checkUserName(String userName) {
+    public boolean checkUserName(String userName) throws  Exception {
        Integer integer = loginMapper.checkUserName(userName);
        if(integer>0)
            return true;
@@ -45,7 +33,7 @@ public class LoginService {
            return false;
     }
 
-    public boolean checkTel(String tel) {
+    public boolean checkTel(String tel) throws  Exception {
         Integer integer = loginMapper.checkTel(tel);
         if(integer>0)
             return true;
@@ -53,7 +41,7 @@ public class LoginService {
             return false;
     }
 
-    public void registerPhoneNO(String tel, String msgCode) {
+    public void registerPhoneNO(String tel, String msgCode)  throws  Exception{
         UserEntity userEntity = new UserEntity();
         userEntity.setLoginType("normal");
         userEntity.setPass(tel);

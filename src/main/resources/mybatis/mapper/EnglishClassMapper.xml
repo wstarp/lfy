@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tech.lfy.mapper.EnglishClassMapper">
+
+    <resultMap id="resultType" type="com.tech.lfy.model.EnglishClassEntity">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="classify" property="classify" jdbcType="VARCHAR"/>
+        <result column="local" property="local" jdbcType="VARCHAR"/>
+        <result column="answer" property="answer" jdbcType="VARCHAR"/>
+        <result column="question" property="question" jdbcType="VARCHAR"/>
+        <result column="reading" property="reading" jdbcType="VARCHAR"/>
+        <result column="state" property="state" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="getEnglishClass" resultMap="resultType" parameterType="HashMap">
+        SELECT
+        id, reading, state, classify, `local`, question, answer, create_time
+        FROM English_Couse
+        WHERE state = #{state}
+
+        <if test="classify != null and classify != ''">
+            AND classify = #{classify}
+        </if>
+    </select>
+
+</mapper>

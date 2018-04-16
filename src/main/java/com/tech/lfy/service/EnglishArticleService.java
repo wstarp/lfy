@@ -8,24 +8,16 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @Service
 public class EnglishArticleService {
-    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     private EnglishArticleMapper englishArticleMapper;
 //article,state
-    public EnglishArticleEntity getEnglishArticle(String state) {
-        EnglishArticleEntity englishArticleEntity = null;
-        try {
+    public List<EnglishArticleEntity> getEnglishArticle(String state) throws Exception{
 
-            englishArticleEntity = englishArticleMapper.getEnglishArticle(state);
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
-        return englishArticleEntity;
+        return  englishArticleMapper.getEnglishArticle(state);
     }
 }

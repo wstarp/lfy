@@ -23,6 +23,10 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
+    /**
+     * 跳转到登录页
+     * @return
+     */
     @RequestMapping(value = "login/toLogin", method = RequestMethod.GET)
     public String toLoginPage() {
         try {
@@ -33,8 +37,10 @@ public class LoginController {
         return null;
     }
 
-    /*
-    注册
+    /**
+     *  注册
+     * @param user
+     * @return
      */
     @RequestMapping(value = "regist/doRegist", method = RequestMethod.POST)
     @ResponseBody
@@ -73,6 +79,11 @@ public class LoginController {
         return map;
     }
 
+    /**
+     * 登录
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "login/dologin", method = RequestMethod.POST)
     @ResponseBody
     public Object doLogin(UserEntity user) {
@@ -111,20 +122,27 @@ public class LoginController {
     }
 
 
-    /*
-    注册
+    /**
+     * 校验手机是否注册过
+     * @param tel
+     * @return
      */
     @RequestMapping(value = "regist/verifyTelRegisted", method = RequestMethod.POST)
     @ResponseBody
     public Object verifyTelRegisted(String tel) {
         Map<String, Object> map = new HashMap<>();
-        map.put("code", "0");
-        map.put("msg", "OK");
+        map.put("code", "-1");
+        map.put("msg", "手机号不能为空");
         try {
             if (!"".equals(tel)) {
                 if (loginService.checkTel(tel)) {
                     map.put("code", "-1");
-                    map.put("msg", "用户名重复");
+                    map.put("msg", "手机号已注册");
+                    return map;
+                }else {
+                    map.put("code", "0");
+                    map.put("msg", "OK");
+                    map.put("hasRegisted", true);
                     return map;
                 }
             }

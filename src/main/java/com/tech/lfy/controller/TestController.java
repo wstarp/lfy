@@ -1,6 +1,5 @@
 package com.tech.lfy.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.oracle.javafx.jmx.json.JSONException;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -33,21 +32,21 @@ public class TestController {
         String hostName = "";
         hostName =  "http://127.0.0.1:8080/lfy/";
         /**
-         *  注册
+         * 1 注册
          */
-//        String url = "regist/doRegist";
-//        Map<String,String> json = new HashMap<String,String>();
-//        try {
-//            json.put("userName", "guest1");
-//            json.put("pass", "123456");
-//            json.put("loginType","normal");
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//        clientPost(hostName +url,json);
+        String url = "regist/doRegist";
+        Map<String,String> json = new HashMap<String,String>();
+        try {
+            json.put("userName", "guest2");
+            json.put("pass", "123456");
+            json.put("loginType","normal");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        clientPost(hostName +url,json);
 
         /**
-         *  登录
+         * 2 登录
          */
 //        String url = "login/dologin";
 //        Map<String,String> json = new HashMap<String,String>();
@@ -61,17 +60,104 @@ public class TestController {
 //        clientPost(hostName +url,json);
 
         /**
-         *  校验手机是否注册过
+         *  3校验手机是否注册过
          */
-        String url = "regist/verifyTelRegisted";
-        Map<String,String> json = new HashMap<String,String>();
-        try {
-            json.put("tel", "15242442699");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        clientPost(hostName +url,json);
+//        String url = "regist/verifyTelRegisted";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            json.put("tel", "15242442692");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
 
+        /**
+         * 4 英语单词查询
+         */
+//        String url = "EnglishWord/doEnglishWord";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            json.put("word", "A");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
+
+
+        /*5 英语课程分类单词查询*/
+//        String url = "EnglishWord/doState";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            json.put("state", "0");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
+
+         /*6 英语文章分类（课文+每日美文）*/
+//        String url = "EnglishArticleController/doEnglishArticle";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            json.put("state", "1");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
+
+          /*7 课程分类（阅读+听力））*/
+//        String url = "EnglishClassController/doEnglishClass";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            json.put("state", "1");
+//            json.put("classify", "2");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
+
+
+         /*8 下载中心*/
+//        String url = "download/doDownload";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            //
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
+
+          /*9 学习论坛显示列表*/
+//        String url = "TalkController/doTalk";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            //
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
+
+
+          /*10 用户学习论坛增加页面*/
+//        String url = "TalkController/doAdd";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            json.put("talkName","talkName12");
+//            json.put("userName","userName22");
+//            json.put("content","content32");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
+
+        /*11 学习论坛显示列表*/
+//        String url = "TalkController/doFind";
+//        Map<String,String> json = new HashMap<String,String>();
+//        try {
+//            json.put("find","userName2");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        clientPost(hostName +url,json);
 
     }
 
