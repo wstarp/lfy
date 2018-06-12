@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tech.lfy.mapper.EnglishTestMapper">
+
+    <resultMap id="resultMap" type="com.tech.lfy.model.EnglishTestEntity">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="testid" property="testid" jdbcType="VARCHAR"/>
+        <result column="question" property="question" jdbcType="VARCHAR"/>
+        <result column="testtype" property="testtype" jdbcType="VARCHAR"/>
+        <result column="answera" property="answera" jdbcType="VARCHAR"/>
+        <result column="answerb" property="answerb" jdbcType="VARCHAR"/>
+        <result column="answerc" property="answerc" jdbcType="VARCHAR"/>
+        <result column="answerd" property="answerd" jdbcType="VARCHAR"/>
+        <result column="answertrue" property="answertrue" jdbcType="VARCHAR"/>
+        <result column="testkey" property="testkey" jdbcType="VARCHAR"/>
+        <result column="questionno" property="questionno" jdbcType="INTEGER"/>
+
+    </resultMap>
+    
+    <select id="getEnglishTest" resultMap="resultMap"  parameterType="String">
+        SELECT id,
+            testid,
+                question,
+            testtype,
+            answera,
+            answerb,
+            answerc,
+            answerd,
+            answertrue,
+            testkey,
+        questionno
+        FROM English_test
+    </select>
+
+    <select id="getEnglishTestByTestkey" resultMap="resultMap"  parameterType="String">
+        SELECT
+            id,
+            testid,
+            question,
+            testtype,
+            answera,
+            answerb,
+            answerc,
+            answerd,
+            answertrue,
+            testkey,
+            questionno
+        FROM English_test
+        WHERE testkey  = #{testkey}
+        ORDER BY questionno ASC
+    </select>
+
+
+
+</mapper>
+        
