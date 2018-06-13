@@ -30,7 +30,7 @@ public class LoginController {
     @RequestMapping(value = "login/toLogin", method = RequestMethod.GET)
     public String toLoginPage() {
         try {
-            return "login";
+            return "englishTest";
         } catch (Exception e) {
             logger.error(e.getMessage());
         }

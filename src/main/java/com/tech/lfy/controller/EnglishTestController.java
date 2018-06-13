@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +25,6 @@ public class EnglishTestController {
 
     @Autowired
     private EnglishTestService englishTestService;
-
 
     /**
      * 英语题目查询列表
@@ -42,6 +43,23 @@ public class EnglishTestController {
             logger.error(e.getMessage());
         }
         return map;
+    }
+
+    /**
+     * 英语题目查询列表
+     * @return
+     */
+    @RequestMapping(value="/doAnswerType",method= RequestMethod.POST)
+    @ResponseBody
+    public String doAnswerType(HttpServletResponse response, HttpServletRequest request){
+        Map<String,Object> map = new HashMap<>();
+        try {
+            request.setAttribute("","");
+
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
+        return "";
     }
 
 
