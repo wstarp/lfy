@@ -28,7 +28,7 @@
         SELECT
         id,talk_name, user_name,content,creat_time
         FROM talk
-        WHERE user_name = #{find} OR  talk_name = #{find}
+        WHERE user_name LIKE CONCAT('%',#{find}, '%') OR  talk_name LIKE CONCAT('%',#{find}, '%')
         ORDER BY creat_time
     </select>
 
