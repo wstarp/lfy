@@ -1,7 +1,9 @@
 package com.tech.lfy.controller;
 
+import com.alibaba.druid.util.StringUtils;
 import com.tech.lfy.model.UserEntity;
 import com.tech.lfy.service.LoginService;
+import org.apache.ibatis.session.defaults.DefaultSqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +64,13 @@ public class LoginController {
         map.put("code", "-1");
         map.put("msg", "注册信息不能为空");
         try {
+            // 修改用户
+            if (user != null && !StringUtils.isEmpty(user.getId()) ){
+                loginService.updateUser(user);
+                map.put("code", "0");
+                map.put("msg", "OK");
+                return map;
+            }
             if (user != null)
                 if (!"".equals(user.getUserName())) {
                     if (loginService.checkUserName(user.getUserName())) {
@@ -71,7 +80,7 @@ public class LoginController {
                     }
                 }
             if ("normal".equals(user.getLoginType())) {
-                loginService.registerUser(user.getUserName(), user.getPass());
+                loginService.registerUser(user.getUserName(), user.getPass(),user.getTel());
                 map.put("code", "0");
                 map.put("msg", "OK");
 
@@ -161,4 +170,43 @@ public class LoginController {
         }
         return map;
     }
+
+
+    /**
+     * 获取用户信息列表
+     * @return
+     */
+    @RequestMapping(value = "login/getUserList", method = RequestMethod.GET)
+    @ResponseBody
+    public Object getUserList() {
+        Map<String,Object> map = new HashMap<>();
+        map.put("code","1");
+        try {
+            return  loginService.getUserList();
+        } catch (Exception e) {
+            logger.error(e.toString());
+        }
+        return map;
+    }
+
+    /**
+     * 获取用户信息列表
+     * @return
+     */
+    @RequestMapping(value = "login/delete", method = RequestMethod.POST)
+    @ResponseBody
+    public Object delete(String id) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("code","1");
+        try {
+            loginService.delete(id);
+            map.put("code","0");
+            map.put("msg", "OK");
+        } catch (Exception e) {
+            logger.error(e.toString());
+        }
+        return map;
+    }
 }
+
+

@@ -4,6 +4,7 @@
 
 <mapper namespace="com.tech.lfy.mapper.LoginMapper">
 
+
     <select id="getLoginUser" resultType="com.tech.lfy.model.UserEntity"  parameterType="com.tech.lfy.model.UserEntity">
         SELECT
           id, user_name as userName, pass, msg_code as msgCode,
@@ -13,7 +14,7 @@
     </select>
 
     <insert id="registerUser" parameterType="com.tech.lfy.model.UserEntity">
-        INSERT INTO  user(user_name,pass,login_type) VALUES ( #{userName}, #{pass},'normal')
+        INSERT INTO  user(user_name,pass,login_type,tel) VALUES ( #{userName}, #{pass},'normal',#{tel})
     </insert>
 
     <insert id="registerPhoneNO" parameterType="com.tech.lfy.model.UserEntity">
@@ -27,5 +28,19 @@
     <select id="checkTel" resultType="Integer" parameterType="String">
         SELECT count(1) FROM user WHERE tel = #{tel}
     </select>
+
+    <select id="getUserList" resultType="com.tech.lfy.model.UserEntity" parameterType="String">
+        SELECT
+            id, user_name as userName, pass, msg_code as msgCode,
+            tel, login_type AS loginType
+        FROM user
+    </select>
+    <update id="updateUser" parameterType="com.tech.lfy.model.UserEntity">
+        update user set tel = #{tel},pass = #{pass} where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from user where id = #{id}
+    </delete>
 
 </mapper>

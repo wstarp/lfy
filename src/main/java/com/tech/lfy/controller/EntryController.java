@@ -11,22 +11,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-@RequestMapping("qd")
+//@RequestMapping("qd")
 public class EntryController {
 
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
 
-    @RequestMapping(value="/dati",method= RequestMethod.GET)
+    @RequestMapping(value="/user",method= RequestMethod.GET)
     public String dati(){
         try {
-          //  return "dt";
+            return "user";
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
         return null;
     }
 
+    @RequestMapping(value="/index",method= RequestMethod.GET)
+    public String index(){
+        return "index";
+    }
 
 }

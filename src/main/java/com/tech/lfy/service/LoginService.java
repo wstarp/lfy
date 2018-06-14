@@ -5,6 +5,7 @@ import com.tech.lfy.model.UserEntity;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class LoginService {
@@ -17,10 +18,11 @@ public class LoginService {
         return loginMapper.getLoginUser(user);
     }
 
-    public void registerUser(String userName, String pass)  throws  Exception{
+    public void registerUser(String userName, String pass,String tel)  throws  Exception{
         UserEntity userEntity = new UserEntity();
         userEntity.setLoginType("normal");
         userEntity.setPass(pass);
+        userEntity.setTel(tel);
         userEntity.setUserName(userName);
         loginMapper.registerUser(userEntity);
     }
@@ -47,5 +49,17 @@ public class LoginService {
         userEntity.setTel(tel);
         userEntity.setMsgCode(msgCode);
         loginMapper.registerPhoneNO(userEntity);
+    }
+
+    public List<UserEntity> getUserList() throws Exception{
+        return loginMapper.getUserList();
+    }
+
+    public void updateUser(UserEntity user) throws Exception{
+        loginMapper.updateUser(user);
+    }
+
+    public void delete(String id)  throws Exception{
+        loginMapper.delete(id);
     }
 }
