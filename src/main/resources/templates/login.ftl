@@ -50,9 +50,20 @@
                                     </select>
                                 </span>
                                 <span  style="font-family:'Microsoft YaHei';font-size:16px;color:#d40a00;">
-                                    <button  onclick="toAnswer()">去答题</button>
+                                    <button  onclick="toAnswer()">确认</button>
                                 </span>
 
+                            </span>
+                        </div>
+                        <div id="ctl00_ContentPlaceHolder1_JQ1_divDec" class="surveydescription">
+                            <span id="ctl00_ContentPlaceHolder1_JQ1_lblQuestionnaireDescription"
+                                  style="vertical-align: middle;">
+                                <span  style="font-family:'Microsoft YaHei';font-size:16px;color:#d40a00;">
+                                请选择题号：
+                                </span>
+                                <span  style="font-family:'Microsoft YaHei';font-size:16px;color:#d40a00;" id="answerList">
+请先请选择类别
+                                </span>
                             </span>
                         </div>
                     </div>

@@ -1,6 +1,5 @@
 package com.tech.lfy.controller;
 
-import com.alibaba.druid.util.StringUtils;
 import com.tech.lfy.model.EnglishTestEntity;
 import com.tech.lfy.service.EnglishTestService;
 import org.slf4j.Logger;
@@ -11,12 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 @Controller
 @RequestMapping("EnglishTest")
@@ -32,10 +28,10 @@ public class EnglishTestController {
      */
     @RequestMapping(value="/doEnglishTest",method= RequestMethod.POST)
     @ResponseBody
-    public Object doEnglishTest(){
+    public Object doEnglishTest(String selectType){
         Map<String,Object> map = new HashMap<>();
         try {
-            List<EnglishTestEntity> englishTestEntity = englishTestService.getEnglishTest(null);
+            List<String> englishTestEntity = englishTestService.getEnglishTest(selectType);
             map.put("code","0");
             map.put("msg","OK");
             map.put("data",englishTestEntity);
@@ -45,39 +41,23 @@ public class EnglishTestController {
         return map;
     }
 
-    /**
-     * 英语题目查询列表
-     * @return
-     */
-    @RequestMapping(value="/doAnswerType",method= RequestMethod.POST)
-    @ResponseBody
-    public String doAnswerType(HttpServletResponse response, HttpServletRequest request){
-        Map<String,Object> map = new HashMap<>();
-        try {
-            request.setAttribute("","");
-
-        } catch (Exception e) {
-            logger.error(e.getMessage());
-        }
-        return "";
-    }
 
 
     /**
      * 英语题目查询
-     * @param testkey
+     * @param testid
      * @return
      */
     @RequestMapping(value="/doTestKey",method= RequestMethod.POST)
     @ResponseBody
-    public Object getEnglishTestByTestkey(String testkey){
+    public Object getEnglishTestByTestkey(String testid){
         Map<String,Object> map = new HashMap<>();
         try {
-            if(StringUtils.isEmpty(testkey)){
-                Random random = new Random();
-                testkey = (random.nextInt(3)+1)+"";
-            }
-            List<EnglishTestEntity> englishTestEntity = englishTestService.getEnglishTestByTestkey(testkey);
+//            if(StringUtils.isEmpty(testkey)){
+//                Random random = new Random();
+//                testkey = (random.nextInt(3)+1)+"";
+//            }
+            List<EnglishTestEntity> englishTestEntity = englishTestService.getEnglishTestByTestid(testid);
             map.put("code","0");
             map.put("msg","OK");
             map.put("data",englishTestEntity);

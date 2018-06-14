@@ -23,6 +23,16 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
+
+    /**
+     * 英语题目查询列表
+     * @return
+     */
+    @RequestMapping(value="englishTest",method= RequestMethod.GET)
+    public String doAnswerType(){
+        return "englishTest";
+    }
+
     /**
      * 跳转到登录页
      * @return
@@ -30,7 +40,7 @@ public class LoginController {
     @RequestMapping(value = "login/toLogin", method = RequestMethod.GET)
     public String toLoginPage() {
         try {
-            return "englishTest";
+            return "login";
         } catch (Exception e) {
             logger.error(e.getMessage());
         }

@@ -10,11 +10,11 @@
         <result column="name" property="name" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <select id="getDownload" resultMap="resultType" >
+    <select id="getDownload" resultMap="resultType"  parameterType="String">
         SELECT
-        id,name, `local`
+        id,name, `local`,state
         FROM download
-
+        WHERE state = #{state}
     </select>
 
 </mapper>

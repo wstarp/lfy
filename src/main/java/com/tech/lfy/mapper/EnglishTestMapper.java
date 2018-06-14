@@ -7,7 +7,7 @@ import java.util.List;
 
 @Component("EnglishTestMapper")
 public interface EnglishTestMapper {
-    List<EnglishTestEntity> getEnglishTest(String test) throws Exception;
+    List<String> getEnglishTest(String test) throws Exception;
 
-    List<EnglishTestEntity> getEnglishTestByTestkey(String testkey) throws  Exception;
+    List<EnglishTestEntity> getEnglishTestByTestid(String testid) throws  Exception;
 }

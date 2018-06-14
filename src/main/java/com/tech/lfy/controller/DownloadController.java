@@ -31,10 +31,10 @@ public class DownloadController {
      */
     @RequestMapping(value = "/doDownload", method = RequestMethod.POST)
     @ResponseBody
-    public Object doDownload() {
+    public Object doDownload(String state) {
         Map<String, Object> map = new HashMap<>();
         try {
-            List<DownloadEntity> download = downloadService.getDownload();
+            List<DownloadEntity> download = downloadService.getDownload(state);
             map.put("code", "0");
             map.put("msg", "OK");
             map.put("data", download);

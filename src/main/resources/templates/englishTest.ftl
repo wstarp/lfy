@@ -24,7 +24,6 @@
                         <div id="ctl00_ContentPlaceHolder1_JQ1_h1Name" style="position:relative;">
                             <h1 id="QuestionnaireName">英语试卷</h1>
                         </div>
-
                         <div id="ctl00_ContentPlaceHolder1_JQ1_divPreview" style="background:#FFE4C8; color: #3E3E3E;border-radius:8px; padding:8px 15px; margin: 15px auto;
         width: 650px; text-align: left;  clear: both; font-size:14px;">
                             <span id="ctl00_ContentPlaceHolder1_JQ1_lblPreview">

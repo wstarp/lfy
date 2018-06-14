@@ -13,11 +13,11 @@ public class EnglishTestService {
     @Resource
     private EnglishTestMapper englishTestMapper;
 
-    public List<EnglishTestEntity> getEnglishTest(String test) throws Exception{
+    public List<String> getEnglishTest(String test) throws Exception{
         return englishTestMapper.getEnglishTest(test);
     }
 
-    public List<EnglishTestEntity> getEnglishTestByTestkey(String testkey) throws Exception {
-        return englishTestMapper.getEnglishTestByTestkey(testkey);
+    public List<EnglishTestEntity> getEnglishTestByTestid(String testid) throws Exception {
+        return englishTestMapper.getEnglishTestByTestid(testid);
     }
 }

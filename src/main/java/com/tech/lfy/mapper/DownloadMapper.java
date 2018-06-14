@@ -8,5 +8,5 @@ import java.util.List;
 
 @Component("DownloadMapper")
 public interface DownloadMapper {
-    List<DownloadEntity>  getDownload() throws Exception;
+    List<DownloadEntity>  getDownload(String state) throws Exception;
 }

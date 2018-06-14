@@ -19,22 +19,13 @@
 
     </resultMap>
     
-    <select id="getEnglishTest" resultMap="resultMap"  parameterType="String">
-        SELECT id,
-            testid,
-                question,
-            testtype,
-            answera,
-            answerb,
-            answerc,
-            answerd,
-            answertrue,
-            testkey,
-        questionno
+    <select id="getEnglishTest" resultType="String"  parameterType="String">
+        SELECT DISTINCT(testid) AS testid
         FROM English_test
+        WHERE testkey  = #{testkey}
     </select>
 
-    <select id="getEnglishTestByTestkey" resultMap="resultMap"  parameterType="String">
+    <select id="getEnglishTestByTestid" resultMap="resultMap"  parameterType="String">
         SELECT
             id,
             testid,
@@ -48,7 +39,7 @@
             testkey,
             questionno
         FROM English_test
-        WHERE testkey  = #{testkey}
+        WHERE testid  = #{testid}
         ORDER BY questionno ASC
     </select>
 

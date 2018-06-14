@@ -15,8 +15,8 @@ public class DownloadService {
     @Resource
     private DownloadMapper downloadMapper;
 
-    public List<DownloadEntity> getDownload() throws Exception{
+    public List<DownloadEntity> getDownload(String state) throws Exception{
 
-        return  downloadMapper.getDownload();
+        return  downloadMapper.getDownload(state);
     }
 }
